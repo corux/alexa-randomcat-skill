@@ -1,3 +1,3 @@
-import Alexarandomcatskill from './alexa-randomcat-skill';
+import AlexaRandomCatSkill from './alexa-randomcat-skill';
 
-module.exports = Alexarandomcatskill;
+module.exports = AlexaRandomCatSkill;
