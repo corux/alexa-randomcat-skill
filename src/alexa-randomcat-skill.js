@@ -13,7 +13,7 @@ export default class AlexaRandomCatSkill {
   }
 
   async _createCard() {
-    const image = this._getPictureUrl();
+    const image = await this._getPictureUrl();
     return card({
       type: 'Standard',
       image: {

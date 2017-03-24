@@ -11,12 +11,7 @@
     },
     {
       "intent": "RandomCat",
-      "slots": [
-        {
-          "name": "any",
-          "type": "LITERAL"
-        }
-      ]
+      "slots": []
     },
     {
       "intent": "Yes",
