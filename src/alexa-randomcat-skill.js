@@ -1,18 +1,38 @@
 import { Skill, Launch, Intent, SessionEnded } from 'alexa-annotations';
-import { say, ask } from 'alexa-response';
+import { say, ask, card } from 'alexa-response';
 import ssml from 'alexa-ssml-jsx';
+import request from 'request-promise-native';
 
 @Skill
 export default class AlexaRandomCatSkill {
 
+  async _getPictureUrl() {
+    const url = 'http://random.cat/meow';
+    const data = JSON.parse(await request(url));
+    return `https://crossorigin.me/${data.file}`;
+  }
+
+  async _createCard() {
+    const image = this._getPictureUrl();
+    return card({
+      type: 'Standard',
+      image: {
+        smallImageUrl: image,
+        largeImageUrl: image
+      }
+    });
+  }
+
   @Launch
   launch() {
-    return ask('Hallo! Ich habe ein zufälliges Katzenbild auf deine Alexa App gesendet. Möchtest du ein weiteres Bild?');
+    return this._createCard()
+      .ask('Hallo! Ich habe ein zufälliges Katzenbild auf deine Alexa App gesendet. Möchtest du ein weiteres Bild?');
   }
 
   @Intent('RandomCat')
   hello() {
-    return ask('Ich habe ein zufälliges Katzenbild auf deine Alexa App gesendet. Möchtest du ein weiteres Bild?');
+    return this._createCard()
+      .ask('Ich habe ein zufälliges Katzenbild auf deine Alexa App gesendet. Möchtest du ein weiteres Bild?');
   }
 
   @Intent('AMAZON.HelpIntent')
@@ -23,7 +43,8 @@ export default class AlexaRandomCatSkill {
 
   @Intent('Yes')
   yes() {
-    return ask('Ok. Möchtest du noch ein Bild?');
+    return this._createCard()
+      .ask('Ok. Möchtest du noch ein Bild?');
   }
 
   @Intent('No')
