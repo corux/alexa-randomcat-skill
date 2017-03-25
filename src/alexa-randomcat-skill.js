@@ -6,9 +6,17 @@ import request from 'request-promise-native';
 @Skill
 export default class AlexaRandomCatSkill {
 
+  _isValidUrl(url) {
+    const validExtensions = ['.jpg', '.jpeg', '.png'];
+    return validExtensions.some(ext => url.trim().toLowerCase().endsWith(ext));
+  }
+
   async _getPictureUrl() {
-    const url = 'http://random.cat/meow';
-    const data = JSON.parse(await request(url));
+    let data;
+    do {
+      const url = 'http://random.cat/meow';
+      data = JSON.parse(await request(url));
+    } while (!this._isValidUrl(data.file));
     return `https://crossorigin.me/${data.file}`;
   }
 
