@@ -47,14 +47,14 @@ export default class AlexaRandomCatSkill {
       .reprompt('Du kannst nach einem zufälligen Katzenbild fragen.');
   }
 
-  @Intent('Yes')
+  @Intent('AMAZON.YesIntent')
   yes() {
     return this._createCard(ask('Ok. Möchtest du noch ein Bild?'));
   }
 
-  @Intent('No')
+  @Intent('AMAZON.NoIntent')
   no() {
-    return say('Ok. Bis bald!');
+    return say('Bis bald!');
   }
 
   @Intent('AMAZON.CancelIntent', 'AMAZON.StopIntent')

@@ -10,16 +10,13 @@
       "intent": "AMAZON.StopIntent"
     },
     {
-      "intent": "RandomCat",
-      "slots": []
+      "intent": "AMAZON.YesIntent"
     },
     {
-      "intent": "Yes",
-      "slots": []
+      "intent": "AMAZON.NoIntent"
     },
     {
-      "intent": "No",
-      "slots": []
+      "intent": "RandomCat"
     }
   ]
 }
