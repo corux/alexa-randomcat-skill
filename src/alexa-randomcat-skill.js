@@ -1,10 +1,16 @@
 import { Skill, Launch, Intent, SessionEnded } from 'alexa-annotations';
 import { say, ask } from 'alexa-response';
-import ssml from 'alexa-ssml-jsx';
 import request from 'request-promise-native';
 
 @Skill
 export default class AlexaRandomCatSkill {
+
+  /**
+   * Gets a random element from an array.
+   */
+  _getRandomEntry(array) {
+    return array[Math.floor(Math.random() * (array.length + 1))];
+  }
 
   _isValidUrl(url) {
     const validExtensions = ['.jpg', '.jpeg', '.png'];
@@ -49,7 +55,13 @@ export default class AlexaRandomCatSkill {
 
   @Intent('AMAZON.YesIntent')
   yes() {
-    return this._createCard(ask('Ok. Möchtest du noch ein Bild?'));
+    const texts = [
+      'Ok. Möchtest du noch ein Bild?',
+      'Ok. Möchtest du ein weiteres Bild?',
+      'Alles klar. Noch eines?',
+      'Alles klar. Willst du noch eines?'
+    ];
+    return this._createCard(ask(_getRandomEntry(texts)));
   }
 
   @Intent('AMAZON.NoIntent')
