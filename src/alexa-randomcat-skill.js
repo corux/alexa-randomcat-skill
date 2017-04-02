@@ -53,7 +53,7 @@ export default class AlexaRandomCatSkill {
       .reprompt('Du kannst nach einem zufälligen Katzenbild fragen.');
   }
 
-  @Intent('AMAZON.YesIntent')
+  @Intent('AMAZON.YesIntent', 'Yes')
   yes() {
     const texts = [
       'Ok. Möchtest du noch ein Bild?',
@@ -61,10 +61,10 @@ export default class AlexaRandomCatSkill {
       'Alles klar. Noch eines?',
       'Alles klar. Willst du noch eines?'
     ];
-    return this._createCard(ask(_getRandomEntry(texts)));
+    return this._createCard(ask(this._getRandomEntry(texts)));
   }
 
-  @Intent('AMAZON.NoIntent')
+  @Intent('AMAZON.NoIntent', 'No')
   no() {
     return say('Bis bald!');
   }
