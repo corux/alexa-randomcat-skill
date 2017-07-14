@@ -5,7 +5,9 @@ import BabiliPlugin from 'babili-webpack-plugin';
 const path = (...parts) => Path.join(__dirname, '..', ...parts);
 
 export default {
-  entry: ['babel-polyfill', path('src', 'index.js')],
+  entry: {
+    skill: ['babel-polyfill', path('src', 'skill.js')]
+  },
   devtool: 'source-map',
   target: 'node',
   output: {
@@ -17,8 +19,7 @@ export default {
   module: {
     rules: [
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.xml$/, loader: 'xml-loader', options: { explicitArray: false } }
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
     ]
   },
   plugins: [
