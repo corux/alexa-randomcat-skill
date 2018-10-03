@@ -20,10 +20,10 @@ export default class AlexaRandomCatSkill {
   async _getPictureUrl() {
     let data;
     do {
-      const url = 'http://random.cat/meow';
+      const url = 'https://aws.random.cat/meow';
       data = JSON.parse(await request(url));
     } while (!this._isValidUrl(data.file));
-    return `https://crossorigin.me/${data.file}`;
+    return `https://gobetween.oklabs.org/pipe/${data.file}`;
   }
 
   async _createCard(response) {
