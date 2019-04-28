@@ -23,7 +23,7 @@
             "codeUri": "dist",
             "functionName": "alexa-randomcat-skill-production",
             "handler": "index.handler",
-            "revisionId": "efea63b5-e985-4b79-a6e8-cb60e9ebdc24",
+            "revisionId": "7fef8d2a-6feb-48ac-a88e-626c3ef36315",
             "runtime": "nodejs8.10"
           }
         ]
