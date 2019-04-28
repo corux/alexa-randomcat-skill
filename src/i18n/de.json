@@ -1,0 +1,9 @@
+{
+  "launch": "Hallo! Ich habe ein zufälliges Katzenbild an deine Alexa App gesendet. Möchtest du ein weiteres Bild?",
+  "next": "Ok. Möchtest du ein weiteres Bild?",
+  "stop": "Bis bald!",
+  "help": {
+    "text": "Mit diesem Skill kannst du dir zufällige Katzenbilder an deine Alexa App senden lassen. Frage einfach nach einem zufälligen Katzenbild.",
+    "reprompt": "Du kannst mich nach einem zufälligen Katzenbild fragen."
+  }
+}

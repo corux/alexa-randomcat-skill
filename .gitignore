@@ -1,5 +1,7 @@
-build/
+dist/
 node_modules/
 npm-debug.log
 .serverless/
-model/dictionary.json
+.vscode/
+assets/mp3s
+assets/mp3s-full

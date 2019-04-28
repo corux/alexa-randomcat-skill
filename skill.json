@@ -1,0 +1,45 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "de-DE": {
+          "summary": "Frage Alexa nach zufälligen Katzen Bildern und bekomme diese direkt in deiner Alexa App angezeigt.",
+          "examplePhrases": [
+            "Alexa, öffne Katzen Bilder"
+          ],
+          "name": "Katzenbilder",
+          "description": "Frage Alexa nach zufälligen Katzen Bildern und bekomme diese direkt in deiner Alexa App angezeigt.",
+          "updatesDescription": "",
+          "keywords": [
+            "Katze",
+            "Tier",
+            "Bilder"
+          ],
+          "smallIconUri": "https://s3-eu-west-1.amazonaws.com/alexa-randomcat-skill/icon108.png",
+          "largeIconUri": "https://s3-eu-west-1.amazonaws.com/alexa-randomcat-skill/icon512.png"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "No special testing required.",
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "dist",
+          "uri": "arn:aws:lambda:eu-west-1:347839150037:function:alexa-randomcat-skill-production"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
