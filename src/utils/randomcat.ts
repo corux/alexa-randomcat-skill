@@ -6,7 +6,7 @@ function isValidUrl(url: string): boolean {
 }
 
 export async function getPictureUrl(): Promise<string> {
-  let data;
+  let data: { file: string };
   do {
     const url = "https://aws.random.cat/meow";
     data = (await axios.get(url)).data;

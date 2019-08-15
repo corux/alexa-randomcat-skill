@@ -1,12 +1,12 @@
+import { LocalizationInterceptor, LogInterceptor, SessionEndedHandler } from "@corux/ask-extensions";
 import { SkillBuilders } from "ask-sdk-core";
+import * as path from "path";
 import {
     AmazonHelpIntentHandler,
     AmazonStopIntentHandler,
     CustomErrorHandler,
     LaunchRequestHandler,
-    SessionEndedHandler,
 } from "./handlers";
-import { LocalizationInterceptor, LogInterceptor } from "./interceptors";
 
 export const handler = SkillBuilders.custom()
     .addRequestHandlers(
@@ -20,7 +20,7 @@ export const handler = SkillBuilders.custom()
     )
     .addRequestInterceptors(
         new LogInterceptor(),
-        new LocalizationInterceptor(),
+        new LocalizationInterceptor(path.join(__dirname, "i18n/{{lng}}.json")),
     )
     .addResponseInterceptors(
         new LogInterceptor(),

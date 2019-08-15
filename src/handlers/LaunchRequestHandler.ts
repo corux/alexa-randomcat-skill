@@ -1,15 +1,15 @@
-import { HandlerInput } from "ask-sdk-core";
+import { BaseRequestHandler, IExtendedHandlerInput, Intents, Request } from "@corux/ask-extensions";
 import { Response } from "ask-sdk-model";
-import { BaseIntentHandler, getPictureUrl, Intents, Request } from "../utils";
+import { getPictureUrl } from "../utils";
 
 @Request("LaunchRequest")
 @Intents("AMAZON.YesIntent", "AMAZON.FallbackIntent", "AMAZON.NextIntent", "RandomCat")
-export class LaunchRequestHandler extends BaseIntentHandler {
-  public async handle(handlerInput: HandlerInput): Promise<Response> {
-    const t = handlerInput.attributesManager.getRequestAttributes().t;
+export class LaunchRequestHandler extends BaseRequestHandler {
+  public async handle(handlerInput: IExtendedHandlerInput): Promise<Response> {
+    const t = handlerInput.t;
 
     const pictureUrl = await getPictureUrl();
-    const builder = handlerInput.responseBuilder
+    const builder = handlerInput.getResponseBuilder()
       .withStandardCard("", "", pictureUrl, pictureUrl);
 
     if (handlerInput.requestEnvelope.session.new) {
